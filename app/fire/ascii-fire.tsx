@@ -132,7 +132,7 @@ const COAL = 8 // glowing coal between the stones
 const KIND_COLOR = ['', LOG_DARK, LOG_MID, LOG_LIT, LOG_END, STONE_DARK, STONE_LIT]
 
 // Flame tongues rise from fixed slots along the log pile; outer ones are shorter.
-const SLOTS = [-0.62, -0.32, 0, 0.3, 0.6]
+const SLOTS = [-0.7, -0.36, 0, 0.34, 0.68]
 const MAX_BLOBS = 16
 const H = 2.2 // nominal height of the tallest tongue, in R
 
@@ -173,10 +173,10 @@ export default function AsciiFire() {
     const tcur = new Float32Array(N) // current height this frame
     const tsway = new Float32Array(N) // sway of each tongue at the current row
     const resetTongue = (i: number) => {
-      const c = 1 - Math.abs(SLOTS[i]) / 0.75 // 1 in the middle, ~0.2 at the sides
+      const c = 1 - Math.abs(SLOTS[i]) / 0.8 // 1 in the middle, ~0.13 at the sides
       tx[i] = SLOTS[i] + (Math.random() - 0.5) * 0.14
-      th[i] = (0.9 + 1.0 * c) * (0.8 + Math.random() * 0.3)
-      tw[i] = 0.19 + 0.11 * c + Math.random() * 0.05
+      th[i] = (0.9 + 0.9 * c) * (0.65 + Math.random() * 0.55)
+      tw[i] = 0.16 + 0.1 * c + Math.random() * 0.05
       tage[i] = 0
       tlife[i] = 0.6 + Math.random() * 1.4
       tseed[i] = Math.random() * 100
